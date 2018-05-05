@@ -1,0 +1,38 @@
+<!--pages/login/login.wxml-->
+<view>
+ <loading hidden="{{hiddenLoading}}">
+  登录中...
+ </loading>
+ 
+</view>
+  <view wx:if="{{session3rd!=''}}">
+    <view class="user-head" >
+      <view class="uerinfo">
+        <text class="nickname">{{userInfo.nickName}}</text>
+        <!-- <text>2017加入</text> -->
+        <view class="userdata">
+          <view class="dataone">
+            <text class="user-num">{{user_data.follow}}</text>
+            <text>关注</text>
+          </view>
+          <view class="dataone">
+            <text class="user-num">{{user_data.fans}}</text>
+            <text>粉丝</text>
+          </view>
+          <!-- <view class="edit">
+          <text>编辑个人资料</text>
+        </view> -->
+        </view>
+      
+      </view>
+      <view class="avatar">
+        <image src="{{userInfo.avatarUrl}}" class="avatar-img"></image>
+      </view>    
+    </view>
+    <button bindtap="getUserResMsg">获取信息</button>
+    <text>{{userResMsg.createDate}}</text>
+  </view>
+  
+  <view class="no-login" wx:else>
+    <button class="login-btn" type="warn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">立即登录</button>
+  </view>

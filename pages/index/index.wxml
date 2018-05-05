@@ -1,0 +1,20 @@
+<swiper class="swiper-box" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">    
+    <block wx:for="{{imgUrls}}" wx:key="link">    
+      <swiper-item>    
+          <navigator url="{{item.link}}" hover-class="navigator-hover">    
+          <image src="{{item.url}}" class="slide-image" width="400" height="150"/>    
+          </navigator>     
+      </swiper-item>    
+    </block>    
+</swiper>   
+<view class="nav-box">
+  <block wx:for="{{navIcon}}" wx:key="navIcon" wx:key="title">
+    <view class="nav-view">
+      <image class="nav-img" src="{{item.imgUrl}}" style="background-color: {{item.bgcolor}};"></image>
+      <text>{{item.title}}</text>
+    </view>
+  </block> 
+</view>
+<view class="tuijian">
+
+</view>

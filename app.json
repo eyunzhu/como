@@ -1,0 +1,40 @@
+{
+  "pages":[    
+    "pages/index/index",
+    "pages/search/search",
+    "pages/more/more",
+    "pages/me/me",
+    "pages/login/login",
+    "pages/logs/logs",
+    "pages/logs/log"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#84C1FF",
+    "navigationBarTitleText": "竞赛帮",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "images/icon/sy0.png",
+      "selectedIconPath": "images/icon/sy1.png"
+    },{
+      "pagePath": "pages/search/search",
+      "text": "搜索",
+      "iconPath": "images/icon/ss0.png",
+      "selectedIconPath": "images/icon/ss1.png"
+    },{
+      "pagePath": "pages/more/more",
+      "text": "更多",
+      "iconPath": "images/icon/gd0.png",
+      "selectedIconPath": "images/icon/gd1.png"
+    },{
+      "pagePath": "pages/me/me",
+      "text": "我的",
+      "iconPath": "images/icon/wd0.png",
+      "selectedIconPath": "images/icon/wd1.png"
+    }]
+  }
+}

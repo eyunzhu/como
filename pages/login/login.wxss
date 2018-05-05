@@ -1,0 +1,36 @@
+/* pages/login/login.wxss */
+/*头部*/
+
+.user-head {
+  display: flex;
+  justify-content: space-between;
+  padding: 30rpx 30rpx 10rpx;
+ /* border-bottom: 1rpx #f0f0f0 solid;*/
+}
+
+.uerinfo {
+  flex: 1;
+  font-size: 11pt;
+}
+
+.avatar {
+  width: 180rpx;
+}
+
+.avatar-img {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+}
+
+.uerinfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.nickname {
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+  font-family: microsoft yahei;
+}
