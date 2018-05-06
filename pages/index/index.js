@@ -1,6 +1,8 @@
 //index.js
 //获取应用实例
 var app = getApp()
+const HOST = getApp().globalData.HOST
+
 Page({
   data: {
     indicatorDots: true,
@@ -27,7 +29,7 @@ Page({
   getCenterNavInfo: function () {
     var that = this;
     wx.request({
-      url: 'http://127.0.0.1/como-server/api/index/getCenterNavInfo.php',
+      url: HOST+'/api/index/getCenterNavInfo.php',
       method: 'GET',
       header: {
         'content-type': 'application/json'
@@ -39,6 +41,7 @@ Page({
             centerNavInfo: centerNavInfo
           })
           console.log("覆盖centerNavInfo缓存数据")
+          console.log(centerNavInfo)
           wx.setStorageSync("centerNavInfo", centerNavInfo) // 覆盖缓存数据
         }
       },
@@ -51,7 +54,7 @@ Page({
   getAdverInfo: function () {
     var that = this;
     wx.request({
-      url: 'http://127.0.0.1/como-server/api/index/getAdverInfo.php',
+      url: HOST+'/api/index/getAdverInfo.php',
       method: 'GET',
       header: {
         'content-type': 'application/json'
@@ -63,6 +66,7 @@ Page({
             adverInfo: adverInfo
           })
           console.log("覆盖adverInfo缓存数据")
+          console.log(adverInfo)
           wx.setStorageSync("adverInfo", adverInfo) // 覆盖缓存数据
         }
       },

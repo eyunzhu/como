@@ -2,7 +2,7 @@
     <block wx:for="{{adverInfo}}" wx:key="link">    
       <swiper-item>    
           <navigator url="{{item.link}}" hover-class="navigator-hover">    
-          <image src="{{item.imgUrl}}" class="slide-image"/>    
+          <image src="{{item.imgUrl}}" class="slide-image"/>  
           </navigator>     
       </swiper-item>    
     </block>    
@@ -15,44 +15,25 @@
     </view>
   </block> 
 </view>
-<view class="wn-tuijian" style="">
-  <text>为您推荐</text>
-</view>
+
 
 <view class="tuijian">
-  <view class="tuijian-container">
-    <view class="tuijian-container-header">
-      <text>高效微信小程序开发大赛</text>
-      <text>详情 ></text>
-    </view>
-    <image src="https://ss3.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=84337ed7c7134954611eee64664f92dd/ac6eddc451da81cbe337459b5e66d01608243197.jpg" class="slide-image"/> 
-   
-      <text class='tuijian-container-text'>    
-        简介
-        本次大赛是基于微信小程序平台的创新应用开发设计竞赛。
-        大赛面向全球高校在校生开放，
-        旨在通过竞赛的方式提升学生进行Web应用的设计与开发能力，
-        
-      </text>
-    
+  <view class="wn-tuijian" style="">
+    <text>为您推荐</text>
   </view>
-
-  <view class="tuijian-container">
-    <view class="tuijian-container-header">
-      <text>高效微信小程序开发大赛</text>
-      <text>详情 ></text>
+  <block wx:for="{{5}}"  wx:key="title">
+    <view class="tuijian-container">
+      <view class="tuijian-container-header">
+        <text>高效微信小程序开发大赛</text>
+        <text>详情 ></text>
+      </view>
+          <image src="https://ps.ssl.qhimg.com/dmfd/420_207_/t013fc60fdf3eaed22d.jpg" />       
+        <text class='tuijian-container-text' >简介
+          本次大赛是基于微信小程序平台的创新应用开发设计竞赛。
+          大赛面向全球高校在校生开放，
+          旨在通过竞赛的方式提升学生进行Web应用的设计与开发能力，          
+        </text>      
     </view>
-    <image src="https://ss3.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=84337ed7c7134954611eee64664f92dd/ac6eddc451da81cbe337459b5e66d01608243197.jpg" class="slide-image"/> 
-    
-      <text >    
-        简介
-        本次大赛是基于微信小程序平台的创新应用开发设计竞赛。
-        大赛面向全球高校在校生开放，
-        旨在通过竞赛的方式提升学生进行Web应用的设计与开发能力，
-        特别是运用微信生态小程序平台开发技术进行创新实践的能力，
-        实现以赛促学、以赛促教、以赛促用，推动微信生态体系的人才培养和产学研用。    
-      </text>
-    
-  </view>
+  </block> 
   
 </view>

@@ -18,6 +18,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    
+     HOST: "https://wc2.bt.eyunzhu.com/"
+  // HOST:"http://127.0.0.1/como-server",
   }
 })

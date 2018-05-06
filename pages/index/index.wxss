@@ -31,6 +31,12 @@
   display: block; 
   padding: 20rpx;
 }
+
+.tuijian{
+  font-size: 28rpx;
+  background-color: #EAEAEA;
+  
+}
 .wn-tuijian{
   background:#EAEAEA;
   font-size: 28rpx;
@@ -42,11 +48,6 @@
   border-left: 10rpx blue solid;
   padding-left: 10rpx;
 }
-.tuijian{
-  font-size: 28rpx;
-  background-color: #EAEAEA;
-
-}
 .tuijian-container{
   height: 600rpx;
   background-color: white;
@@ -57,10 +58,14 @@
 }
 .tuijian-container image{
   margin-top: 10rpx;
-  height: 250rpx;
+  height: 300rpx;
+  width: 100%;
 }
 .tuijian-container-text{
-
+display: block;
+margin-left: 20rpx;
+  
+  
 }
 .tuijian-container-header{
   padding: 10rpx ;
