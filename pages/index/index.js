@@ -103,11 +103,8 @@ Page({
   },
   goComDetails:function(e){
    // console.log("弹出框", e.currentTarget.dataset)
-    var index=parseInt(e.currentTarget.dataset.id);
-    console.log(index)
-    
     wx.navigateTo({
-      url: 'comDetails/comDetails?com_id='+index,
+      url: 'comDetails/comDetails?com_id=' + e.currentTarget.dataset.com_id
     })
   },
 })   

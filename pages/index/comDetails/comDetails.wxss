@@ -1,1 +1,99 @@
 /* pages/index/comDetails/comDetails.wxss */
+
+button{
+  width:210rpx;height:100rpx;padding:0;margin:0;  position: fixed;bottom:-5px;background:none;right:320rpx;
+  font-size: 35rpx;
+  padding-left: 50rpx;
+}
+button::after {
+  border: 0;
+} 
+
+.content{
+  background-color: #EAEAEA;
+  padding: 20rpx;
+  margin-bottom: 90rpx;
+  font-size: 30rpx;
+}
+.com-pic{
+  width: 100%;
+  height: 400rpx;
+  border-radius: 10rpx;
+}
+.content-item{
+  background-color: white;
+  margin-bottom: 10rpx;
+  border-radius: 10rpx;
+  position: relative;
+  padding: 0 20rpx  20rpx 20rpx;
+}
+.content-item view{
+  padding: 10rpx 0;
+}
+
+.content-item text{
+  color: #696969;
+  line-height: 40rpx;
+}
+.content-item-title{
+  font-size: 30rpx;
+  text-align: center; 
+  padding: 10rpx; 
+}
+.line{
+  height: 50rpx;
+  line-height: 50rpx;  
+  border-bottom:  #EAEAEA 2rpx dashed;  
+}
+.line text{
+  color: #708090;
+}
+.setClipboardData{
+  position: absolute;
+  left: 180rpx;
+  top: 0;
+  color: #87CEEB;
+}
+
+.content-item text{  
+  padding: 10rpx;  
+}
+.wxewm{
+  text-align: center
+}
+.wxewm image{
+  width: 450rpx;
+  height: 450rpx;
+}
+.footer{
+  width: 750rpx;
+  height: 90rpx;
+  position: fixed;
+  bottom: 0rpx;
+  background-color: white;
+  border-top: 2rpx solid #EAEAEA;
+}
+.footer image{
+  padding: 15rpx 25rpx;
+  width: 60rpx;
+  height: 60rpx;
+  float: inherit;
+}
+.footer view{
+  float: left;
+  font-size: 35rpx;
+  line-height: 90rpx;
+  
+  
+}
+.footer-sc{
+  width: 220rpx;
+}
+.footer-fx{
+  width: 220rpx;
+  border-left: 2rpx solid #EAEAEA;
+  border-right: 2rpx solid #EAEAEA;
+}
+.footer-bm{
+  width: 298rpx;  
+}

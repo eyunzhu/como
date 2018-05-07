@@ -22,7 +22,7 @@
     <text>为您推荐</text>
   </view>
   <block wx:for="{{competitionInfo}}"  wx:key="item.title" >
-    <view class="tuijian-container" bindtap="goComDetails" data-id="{{item.Id}}"  data-title="{{item.title}}" data-imgUrl="{{item.imgUrl}}">
+    <view class="tuijian-container" bindtap="goComDetails" data-com_id="{{item.comId}}"  data-title="{{item.title}}" data-imgUrl="{{item.imgUrl}}">
       <view class="tuijian-container-header">
         <text>{{item.title}}</text>
         <text>详情 ></text>

@@ -1,3 +1,47 @@
 <!--pages/index/comDetails/comDetails.wxml-->
-<text>pages/index/comDetails/comDetails.wxml</text>
-<view>{{com_id}}</view>
+ <block wx:for="{{comDetails}}">  
+  <view class="content">
+  <image class='com-pic' src="{{item.imgUrl}}"></image>
+
+    <view class="content-item">    
+      <view class='content-item-title'>{{item.title}}</view>
+      <text>{{item.detail}}</text>
+    </view>
+
+    <view class="content-item">
+        <view class='line'>大赛官网：
+            <view class='setClipboardData' bindtap='setClipboardData' data-url='{{item.url}}'>
+                点击复制大赛官网链接
+            </view>
+        </view>
+        <view class='line'>第几届： <text>{{item.num}}</text> </view>
+        <view class='line'>报名方式： <text>在线报名</text> </view>
+    </view>
+
+    <view class="content-item">
+        <view  class='line'>添加微信群</view>
+        <view class='wxewm'>
+          <image  src="http://wc2.bt.eyunzhu.com/images/gzh.jpg"></image>
+        </view>
+    </view>
+  <!--
+    <view class="content-item">
+    <navigator url="../index" open-type="switchTab">跳转到购物车页面</navigator>
+    </view>
+  -->
+
+  </view>
+
+  <view class="footer">
+    <view class='footer-sc'>
+      <image src='../../../images/icon/sc0.png'></image>
+    收藏</view>
+    <view class='footer-fx' >
+      <image src='../../../images/icon/fx.png'></image>
+      <button open-type="share" hover-class="none" data-share='你好'>分享</button>
+      </view>
+    <view class='footer-bm'>
+    <image src='../../../images/icon/bm.png'></image>
+    立刻报名</view>
+  </view>
+</block> 

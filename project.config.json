@@ -40,6 +40,12 @@
 					"name": "登录",
 					"pathName": "pages/login/login",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "竞赛详情",
+					"pathName": "pages/index/comDetails/comDetails",
+					"query": ""
 				}
 			]
 		}
