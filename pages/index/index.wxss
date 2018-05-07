@@ -48,18 +48,26 @@
   border-left: 10rpx blue solid;
   padding-left: 10rpx;
 }
-.tuijian-container{
-  height: 600rpx;
+.tuijian-container{ 
   background-color: white;
   margin: 0 14rpx 20rpx 14rpx;
   border-radius: 10rpx;
-  
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 10rpx;
   
 }
 .tuijian-container image{
   margin-top: 10rpx;
   height: 300rpx;
   width: 100%;
+}
+
+.num {
+  position: absolute;
+  top: 60rpx;
+  left: 10rpx;
+  color: white;
 }
 .tuijian-container-text{
 display: block;

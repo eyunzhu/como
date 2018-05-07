@@ -1,0 +1,3 @@
+<!--pages/index/comDetails/comDetails.wxml-->
+<text>pages/index/comDetails/comDetails.wxml</text>
+<view>{{com_id}}</view>

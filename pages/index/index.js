@@ -9,21 +9,21 @@ Page({
     autoplay: true,
     interval: 5000,
     duration: 1000,
-    userInfo: {}
+    userInfo: {},
   },
   onLoad: function () {
     var that=this
-    var centerNavInfo = wx.getStorageSync("centerNavInfo")
-    var adverInfo = wx.getStorageSync("adverInfo")
-    if (centerNavInfo) {// 本地如果有CenterNavInfo缓存，提前渲染
+    if (wx.getStorageSync("centerNavInfo")) {// 本地如果有CenterNavInfo缓存，提前渲染
       that.setData({
-        centerNavInfo: centerNavInfo,
-        adverInfo: adverInfo
+        centerNavInfo: wx.getStorageSync("centerNavInfo"),
+        adverInfo: wx.getStorageSync("adverInfo"),
+        competitionInfo: wx.getStorageSync("competitionInfo")
       })
     }
 
     this.getCenterNavInfo();//从后端获取centerNavInfo
     this.getAdverInfo();//从后端获取centerNavInfo
+    this.getCompetitionInfo();//从后端获取competitionInfo
   },
 
   getCenterNavInfo: function () {
@@ -74,6 +74,40 @@ Page({
         console.log("getAdverInfo请求失败"),
           console.log(e)
       }
+    })
+  },
+  getCompetitionInfo: function () {
+    var that = this;
+    wx.request({
+      url: HOST + 'api/index/getCompetitionInfo.php',
+      method: 'GET',
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        if (res.statusCode === 200) {
+          var competitionInfo = res.data
+          that.setData({ // 再次渲染
+            competitionInfo: competitionInfo
+          })
+          console.log("覆盖competitionInfo缓存数据")
+          console.log(competitionInfo)
+          wx.setStorageSync("competitionInfo", competitionInfo) // 覆盖缓存数据
+        }
+      },
+      fail: function (e) {
+        console.log("competitionInfo请求失败"),
+          console.log(e)
+      }
+    })
+  },
+  goComDetails:function(e){
+   // console.log("弹出框", e.currentTarget.dataset)
+    var index=parseInt(e.currentTarget.dataset.id);
+    console.log(index)
+    
+    wx.navigateTo({
+      url: 'comDetails/comDetails?com_id='+index,
     })
   },
 })   
