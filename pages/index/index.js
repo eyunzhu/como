@@ -4,7 +4,9 @@ var app = getApp()
 const HOST = getApp().globalData.HOST
 
 Page({
+
   data: {
+    hiddenLoading: true,
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
@@ -12,6 +14,9 @@ Page({
     userInfo: {},
   },
   onLoad: function () {
+    this.setData({
+      hiddenLoading: !this.data.hiddenLoading
+    });
     var that=this
     if (wx.getStorageSync("centerNavInfo")) {// 本地如果有CenterNavInfo缓存，提前渲染
       that.setData({
@@ -24,6 +29,15 @@ Page({
     this.getCenterNavInfo();//从后端获取centerNavInfo
     this.getAdverInfo();//从后端获取centerNavInfo
     this.getCompetitionInfo();//从后端获取competitionInfo
+
+    this.setData({
+      hiddenLoading: !this.data.hiddenLoading
+    });
+  },
+  /*下拉刷新*/
+  onPullDownRefresh: function () {
+    this.onLoad();
+    wx.stopPullDownRefresh()
   },
 
   getCenterNavInfo: function () {

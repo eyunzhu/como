@@ -1,5 +1,6 @@
 // pages/login/login.js
-const app = getApp()
+var app = getApp()
+const HOST = getApp().globalData.HOST
 
 Page({  
 
@@ -28,7 +29,7 @@ Page({
       console.log(session3rd)
       var that=this
       wx.request({
-        url: 'http://127.0.0.1/como-server/api/login/judgeSession3rd.php',
+        url: HOST+'api/login/judgeSession3rd.php',
         data:{
           session3rd: session3rd
         },
@@ -66,7 +67,7 @@ Page({
           console.log("login函数"),
         wx.request({
           
-          url: 'http://127.0.0.1/como-server/api/login/login.php',//服务器的地址，现在微信小程序只支持https请求，所以调试的时候请勾选不校监安全域名  
+          url: HOST+'api/login/login.php',//服务器的地址，现在微信小程序只支持https请求，所以调试的时候请勾选不校监安全域名  
           data: {
             code: res.code,
             encryptedData: e.detail.encryptedData,
@@ -100,7 +101,7 @@ Page({
     var that = this;
     var session3rd = wx.getStorageSync('session3rd');
     wx.request({      
-      url: 'http://127.0.0.1/como-server/api/login/getUserResMsg.php',//服务器的地址，现在微信小程序只支持https请求，所以调试的时候请勾选不校监安全域名  
+      url: HOST +'api/login/getUserResMsg.php',//服务器的地址，现在微信小程序只支持https请求，所以调试的时候请勾选不校监安全域名  
       data: {
         session3rd: session3rd
       },

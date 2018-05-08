@@ -1,7 +1,7 @@
 <!--pages/login/login.wxml-->
 <view>
  <loading hidden="{{hiddenLoading}}">
-  登录中...
+  加载中...
  </loading>
  
 </view>

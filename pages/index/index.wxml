@@ -1,3 +1,6 @@
+<loading hidden="{{hiddenLoading}}">
+  加载中...
+ </loading>
 <swiper class="swiper-box" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">    
     <block wx:for="{{adverInfo}}" wx:key="item.link">    
       <swiper-item>    

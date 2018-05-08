@@ -1,1 +1,79 @@
-/* pages/me/me.wxss */
+.header{
+  width: 670rpx;
+  height: 410rpx;
+  padding: 20rpx 40rpx;
+  text-align: center;
+}
+.header-img{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  margin: 20rpx 0;
+}
+.user-edit{
+  width: 40rpx;
+  height: 40rpx;
+  position: fixed;
+  top: 200rpx;
+  right: 290rpx;
+}
+.header-name{
+  font-size: 35rpx;
+  margin: 10rpx 0;
+}
+.header-address{
+  font-size: 30rpx;
+  margin: 10rpx 0;
+  color: #696969;
+}
+.header-bot{
+  margin-top: 20rpx;
+  font-size: 35rpx;
+}
+.header-bm{
+  width: 334rpx;
+  float: left;
+  border-right: 2rpx solid #cacaca;
+}
+
+.line{
+  height: 20rpx;
+  background: #DCDCDC;
+}
+/*
+<view class="main">
+  <view class="main-item">
+    <image src="../../images/icon/wdtz.png"></image>
+    <text>我的帖子</text>
+    <view class="main-item-num">
+      <text>23</text>
+      <image src="../../images/icon/next.png"></image>
+    </view>
+  </view>
+</view>
+*/
+.main{
+  padding: 20rpx 40rpx 40rpx 40rpx;
+}
+.main-item{
+  font-size: 30rpx; 
+  height: 60rpx;
+  line-height:   60rpx;
+  padding: 15rpx 0;
+  border-bottom: 2rpx  solid #ccc;
+}
+.main-item image{
+   width: 60rpx;
+   height: 60rpx;   
+}
+.main-item text{
+  position: absolute;
+  right: 140rpx;
+}
+.main-item-icon{
+   float:  left;
+   padding-right: 20rpx;
+}
+.main-item-next{
+  float: right
+}

@@ -5,7 +5,8 @@
     "pages/search/search",
     "pages/more/more",
     "pages/me/me",
-    "pages/login/login",
+    "pages/me/userinfo/userinfo",
+    "pages/me/setuserinfo/setuserinfo",
     "pages/logs/logs",
     "pages/logs/log"
   ],

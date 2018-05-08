@@ -42,9 +42,27 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 1,
 					"name": "竞赛详情",
 					"pathName": "pages/index/comDetails/comDetails",
+					"query": "com_id=201_1"
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/me/me",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "用户信息",
+					"pathName": "pages/me/userinfo/userinfo",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "用户信息设置",
+					"pathName": "pages/me/setuserinfo/setuserinfo",
 					"query": ""
 				}
 			]

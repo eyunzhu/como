@@ -1,2 +1,63 @@
 <!--pages/me/me.wxml-->
-<text>pages/me/me.wxml</text>
+<view wx:if="{{session3rd!=''}}">
+    <view class="header">
+      <view bindtap="goUserInfo" data-com_id="{{item.comId}}">
+          <image class='header-img' src="{{userInfo.avatarUrl}}"></image>
+          <image class="user-edit" src="../../images/icon/edit1.png"></image>
+      </view>
+      <view class="header-name">{{userInfo.nickName}}</view>
+      <view class="header-address">{{userInfo.province}}·{{userInfo.city}}</view> 
+      <view class="header-bot">
+        <view class="header-bm">我的报名</view>
+        <view class="header-sc">我的收藏</view>
+      </view>
+    </view>
+
+    <view class="line"></view>
+
+    <view class="main">
+      <view class="main-item">
+        <image class="main-item-icon"  src="../../images/icon/wdtz.png"></image>
+        我的帖子   
+        <text >3</text>
+          <image class="main-item-next"  src="../../images/icon/next.png"></image>
+      </view>
+      <view class="main-item">
+        <image class="main-item-icon"  src="../../images/icon/wdhf.png"></image>
+        我的回复   
+        <text >23</text>
+          <image class="main-item-next"  src="../../images/icon/next.png"></image>
+      </view>
+      <view class="main-item">
+        <image class="main-item-icon"  src="../../images/icon/sc1.png"></image>
+        我的收藏   
+        <text >5</text>
+          <image class="main-item-next"  src="../../images/icon/next.png"></image>
+      </view>
+      <view class="main-item">
+        <image class="main-item-icon"  src="../../images/icon/fx1.png"></image>
+        浏览历史   
+        <text >23</text>
+          <image class="main-item-next"  src="../../images/icon/next.png"></image>
+      </view>
+
+    </view>
+    <view class="line"></view>
+    <view class="main">
+      <view class="main-item">
+        <image class="main-item-icon"  src="../../images/icon/more1.png"></image>
+        更多
+          <image class="main-item-next"  src="../../images/icon/next.png"></image>
+      </view>
+    </view>
+
+</view>
+
+<view  wx:else>
+     <view class="header">
+      <image class='header-img' src="../../images/icon/tx.png"></image>
+      <view class="header-name">您好</view>
+      <view class="header-address">欢迎来到竞赛帮</view> 
+    </view>
+    <button  open-type="getUserInfo" bindgetuserinfo="getUserInfo">立即登录</button>
+</view>
