@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 6,
 			"list": [
 				{
 					"id": -1,
@@ -63,6 +63,18 @@
 					"id": -1,
 					"name": "用户信息设置",
 					"pathName": "pages/me/setuserinfo/setuserinfo",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "nav1",
+					"pathName": "pages/index/nav1/nav1",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "nav0",
+					"pathName": "pages/index/nav0/nav0",
 					"query": ""
 				}
 			]

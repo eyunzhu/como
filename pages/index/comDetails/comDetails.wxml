@@ -1,5 +1,5 @@
 <!--pages/index/comDetails/comDetails.wxml-->
- <block wx:for="{{comDetails}}">  
+ <block wx:for="{{comDetails}}" wx:key="item.title">  
   <view class="content">
   <image class='com-pic' src="{{item.imgUrl}}"></image>
 

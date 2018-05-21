@@ -36,7 +36,16 @@ Page({
   },
   /*下拉刷新*/
   onPullDownRefresh: function () {
-    this.onLoad();
+    this.setData({
+      hiddenLoading: !this.data.hiddenLoading
+    });
+    this.getCenterNavInfo();//从后端获取centerNavInfo
+    this.getAdverInfo();//从后端获取centerNavInfo
+    this.getCompetitionInfo();//从后端获取competitionInfo
+    
+    this.setData({
+      hiddenLoading: !this.data.hiddenLoading
+    });
     wx.stopPullDownRefresh()
   },
 

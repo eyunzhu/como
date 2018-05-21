@@ -1,25 +1,7 @@
-<view class="xd-container">
-<form bindsubmit="bindSaveTap">
-<image class="xd-img-user1" catchtap="chooseImageTap" src="{{logo}}"></image>
-<view class="xd-view-section">
- <text class="xd-abs xd-flex-left xd-text-nick">昵称</text>
- <input name="nick_name" placeholder="请输入昵称" class="xd-input" value="{{userInfo.user_name}}"/>
-</view>
-<view class="xd-view-section1">
- <text class="xd-abs xd-flex-left xd-text-nick">宝宝性别</text>
- <radio-group class="xd-abs xd-radio-group" name="baby_sex">
- <label class="xd-label-radio" wx:for="{{sex_items}}" wx:key="item">
- <radio color="#3cc975" value="{{item.name}}" wx:if="{{item.name==userInfo.baby_sex}}" checked="true"/>
- <radio color="#3cc975" value="{{item.name}}" wx:else checked="false"/>
- <text class="xd-radio-text">{{item.value}}</text>
- </label>
- </radio-group>
-</view>
-<view class="xd-view-section1">
- <text class="xd-abs xd-flex-left xd-text-nick">宝宝年龄</text>
- <input placeholder="请输入年龄" wx:if="{{userInfo.baby_age != 0}}" value="{{userInfo.baby_age}}" class="xd-input"/>
- <input name="baby_age" placeholder="请输入年龄" wx:else value="" class="xd-input"/>
-</view>
-<button size="default" class="xd-abs xd-subBtn" formType="submit" hover-class="xd-subBtn-hover">保存</button>
-</form>
+<view class="section tc">
+  <video id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"   enable-danmu danmu-btn controls></video>
+  <view class="btn-area">
+    <input bindblur="bindInputBlur"/>
+    <button bindtap="bindSendDanmu">发送弹幕</button>
+  </view>
 </view>

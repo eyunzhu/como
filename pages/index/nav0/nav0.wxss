@@ -1,0 +1,14 @@
+
+.header{
+  text-align: center;
+  font-size: 40rpx;
+  margin: 0 20rpx;
+  padding: 20rpx 0;
+  
+}
+.header view{
+  background: #84C1FF;
+  border-radius: 20rpx;
+  color: white;
+  padding: 20rpx;  
+}

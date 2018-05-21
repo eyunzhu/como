@@ -1,6 +1,11 @@
 {
   "pages":[    
     "pages/index/index",
+    "pages/index/nav0/nav0",
+    "pages/index/nav1/nav1",
+    "pages/index/nav2/nav2",
+    "pages/index/nav3/nav3",
+    "pages/index/nav4/nav4",
     "pages/index/comDetails/comDetails",
     "pages/search/search",
     "pages/more/more",

@@ -8,3 +8,94 @@
   padding: 0rpx 0;
   box-sizing: border-box;
 } 
+
+/**index.wxss**/
+.swiper-box{
+  width: 100%;
+  height: 400rpx;
+  background: #ccc;
+}
+.slide-image{    
+  width: 100%;  
+}  
+.nav-box{
+  height: 160rpx;
+  background-color: white;
+  display: flex;
+  flex-direction:row;
+  justify-content:space-around;
+  align-items: center;
+}
+.nav-box text{
+  font-size: 30rpx;
+}
+.nav-view{
+  padding: 5rpx;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+}
+.nav-img{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  display: block; 
+  padding: 20rpx;
+}
+
+.tuijian{
+  font-size: 28rpx;
+  background-color: #EAEAEA;
+  
+}
+.wn-tuijian{
+  background:#EAEAEA;
+  font-size: 28rpx;
+  height:40rpx;
+  line-height:40rpx;
+  padding: 10rpx;
+}
+.wn-tuijian text{
+  border-left: 10rpx blue solid;
+  padding-left: 10rpx;
+}
+.tuijian-container{ 
+  background-color: white;
+  margin: 0 14rpx 20rpx 14rpx;
+  border-radius: 10rpx;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 10rpx;
+  
+}
+.tuijian-container image{
+  margin-top: 10rpx;
+  height: 300rpx;
+  width: 100%;
+}
+
+.num {
+  position: absolute;
+  top: 60rpx;
+  left: 10rpx;
+  color: white;
+}
+.tuijian-container-text{
+display: block;
+margin-left: 20rpx;
+  
+  
+}
+.tuijian-container-header{
+  padding: 10rpx ;
+
+}
+.tuijian-container-header text:nth-child(1){
+  float: left;
+  padding-left: 10rpx;
+}
+.tuijian-container-header text:nth-child(2){
+  float: right;
+  color: #6699ff;
+}
+

@@ -10,12 +10,15 @@
       </swiper-item>    
     </block>    
 </swiper>   
+
 <view class="nav-box">
   <block wx:for="{{centerNavInfo}}"  wx:key="item.imgUrl">
+  <navigator url="{{item.link}}" hover-class="navigator-hover"> 
     <view class="nav-view">
       <image class="nav-img" src="{{item.imgUrl}}" style="background-color: {{item.bgcolor}};"></image>
       <text>{{item.title}}</text>
     </view>
+    </navigator>  
   </block> 
 </view>
 
