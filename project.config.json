@@ -45,7 +45,7 @@
 					"id": 1,
 					"name": "竞赛详情",
 					"pathName": "pages/index/comDetails/comDetails",
-					"query": "com_id=201_1"
+					"query": "com_id=b1"
 				},
 				{
 					"id": -1,

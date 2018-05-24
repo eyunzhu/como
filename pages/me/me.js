@@ -17,7 +17,7 @@ Page({
     // this.setData({
     //  session3rd: ''
     //})
-  },
+  }, 
   /**
    * 生命周期函数--监听页面加载
    */
@@ -82,7 +82,10 @@ Page({
                 console.log(res1.data);
               console.log(res1)
               console.log(res1.data.openId);
-              wx.setStorageSync('session3rd', res1.data.session3rd);//将session3rd写入本地缓存  
+              wx.setStorageSync('session3rd', res1.data.session3rd);//将session3rd写入本地缓存
+              wx.setStorageSync('openId', res1.data.openId); 
+              wx.setStorageSync('is_login', true); 
+
               that.setData({
                 session3rd: res1.data.session3rd,
                 is_login: true,

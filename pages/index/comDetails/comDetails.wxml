@@ -33,9 +33,15 @@
   </view>
 
   <view class="footer">
-    <view class='footer-sc'>
-      <image src='../../../images/icon/sc0.png'></image>
-    收藏</view>
+    <view class='footer-sc' bindtap='onClickCollection'>
+      <block wx:if="{{!collection}}">
+        <image src='../../../images/icon/sc0.png'></image>收藏
+      </block>
+      <block wx:else>
+        <image src='../../../images/icon/sc1.png'></image>已收藏
+      </block>      
+    </view>
+
     <view class='footer-fx' >
       <image src='../../../images/icon/fx.png'></image>
       <button open-type="share" hover-class="none" data-share='你好'>分享</button>

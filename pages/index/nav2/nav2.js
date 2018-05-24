@@ -2,7 +2,8 @@ var navUtil = require('../../../utils/navUtil.js')
 const HOST = getApp().globalData.HOST
 Page({
   data: {
-    hiddenLoading: false,
+    hiddenLoading: false, //加载中，默认false，隐藏 
+    onLoading: false, //下拉加载中，默认false，隐藏 
     searchLoadingComplete: false,  //“没有数据”的变量，默认false，隐藏  
     nav2Item: [],
     class: 'c',//查询类型
@@ -80,10 +81,16 @@ Page({
   //滚动到底部触发事件  
   searchScrollLower: function () {
     console.log("滚动到底部触发事件")
-    var that = this;
+    var that = this;    
+    that.setData({
+      onLoading: true 
+    });    
     if (!that.data.searchLoadingComplete) {
       that.loadMore();
     }
+    that.setData({
+      onLoading: false
+    });
   },
   //跳转到详情页面
   goComDetails: function (e) {

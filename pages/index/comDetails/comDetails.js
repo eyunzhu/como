@@ -24,7 +24,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    comDetails:{}
+    comDetails:{},
+    com_id:'',
+    collection:false, //是否收藏 默认 false
   },
 
   /**
@@ -36,6 +38,7 @@ Page({
       com_id: options.com_id
     })
     that.getComDetails(options.com_id)
+    that.getCollection()
   },
 
 /*复制到剪切板*/
@@ -57,8 +60,6 @@ Page({
       }
     })
   },
-  
-
 
   //获取竞赛详情
   getComDetails: function (com_id) {
@@ -89,6 +90,64 @@ Page({
     })
   },
 
+  //获取用户是否收藏此竞赛
+  getCollection:function(){
+    var that = this;    
+      wx.request({
+        url: HOST + 'api/index/comDetails/getCollection.php',
+        method: 'GET',
+        data: {
+          comId: that.data.com_id,
+          openId: wx.getStorageSync('openId'),
+        },
+        header: {
+          'content-type': 'application/json'
+        },
+        success: function (res) {
+          if (res.statusCode === 200) {
+            console.log("此竞赛是否收藏：", res.data)
+            that.setData({ // 渲染
+              collection: res.data
+            })
+          }
+        },
+        fail: function (e) {
+          console.log("competitionInfo请求失败"),
+            console.log(e)
+        }
+      })
+    
+  },
+
+
+  //点击收藏
+  onClickCollection:function(){
+    var that=this 
+    //判断是否登录（验证缓存是否存在openId)
+    if (!wx.getStorageSync('is_login')) {
+      console.log("未登录")
+      wx.showModal({
+        title: '未登录',
+        content: '前往登录？',
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+            wx.switchTab({
+              url: "../../me/me"
+            })
+          } else {
+            console.log('用户点击取消')
+          }
+
+        }
+      })
+    } else {
+      that.setData({
+        collection: !that.data.collection
+      })
+    }
+    
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

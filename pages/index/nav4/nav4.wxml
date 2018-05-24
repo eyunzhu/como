@@ -21,7 +21,8 @@
             <image src="{{item.imgUrl}}" />       
             <text class='tuijian-container-text' >{{item.abstract}}</text>      
         </view>
-      </block>    
+      </block>   
+      <view class='onload'  hidden="{{!onLoading}}" >加载中</view> 
       <view class='onload'  hidden="{{!searchLoadingComplete}}" >已加载全部</view>  
   </scroll-view> 
 

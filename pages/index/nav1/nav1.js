@@ -3,9 +3,10 @@ const HOST = getApp().globalData.HOST
 Page({
   data: {
     hiddenLoading: false,
+    onLoading: false, //下拉加载中，默认false，隐藏 
     searchLoadingComplete: false,  //“没有数据”的变量，默认false，隐藏  
     nav1Item: [],
-    class: 'c',//查询类型
+    class: 'b',//查询类型
     num_rec_per_page: 2,//每页个数
     page: 0,//查询第几页
   },
@@ -81,9 +82,15 @@ Page({
   searchScrollLower: function () {
     console.log("滚动到底部触发事件")
     var that = this;
+    that.setData({
+      onLoading: true
+    });
     if (!that.data.searchLoadingComplete) {
       that.loadMore();
     }
+    that.setData({
+      onLoading: false
+    });
   },
   //跳转到详情页面
   goComDetails: function (e) {
