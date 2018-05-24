@@ -1,2 +1,29 @@
-<!--pages/index/nav4/nav4.wxml-->
-<text>pages/index/nav4/nav4.wxml</text>
+<loading hidden="{{hiddenLoading}}">
+  加载中...
+ </loading>
+<view class="header">
+  <view bindtap='loadMore' >其他竞赛</view>
+</view>
+
+<view class="tuijian">
+  <view class="wn-tuijian" style="">
+    <text>为您推荐</text>
+  </view>
+
+  <scroll-view class='scroll' scroll-y="true" bindscrolltolower="searchScrollLower" >  
+      <block wx:for="{{nav4Item}}"  wx:key="item.title" >
+        <view class="tuijian-container" bindtap="goComDetails" data-com_id="{{item.comId}}"  data-title="{{item.title}}" data-imgUrl="{{item.imgUrl}}">
+          <view class="tuijian-container-header">
+            <text>{{item.title}}</text>
+            <text>详情 ></text>
+          </view>
+            <text class='num'>{{index+1}}</text>
+            <image src="{{item.imgUrl}}" />       
+            <text class='tuijian-container-text' >{{item.abstract}}</text>      
+        </view>
+      </block>    
+      <view class='onload'  hidden="{{!searchLoadingComplete}}" >已加载全部</view>  
+  </scroll-view> 
+
+  
+</view>

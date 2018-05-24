@@ -1,22 +1,30 @@
-<view class="search">  
-  <view class="search-bar">  
-    <view class="search-wrap">  
-        <icon type="search" size="16" class="icon-search" />  
-        <input type="text" placeholder="请输入搜索内容" class="search-input" name="searchKeyword" bindinput="bindKeywordInput" value="{{searchKeyword}}" />  
-    </view>  
-    <view class="search-cancel" bindtap="keywordSearch">搜索</view>  
-  </view>  
-  <view class="search-result">  
-    <scroll-view scroll-y="true" bindscrolltolower="searchScrollLower">  
-      <view class="result-item" wx:for="{{searchSongList}}" wx:key="unique"  data-data="{{item}}" >  
-        <view class="icon{{item.isonly=='0' ? ' nocopyright' : ''}}"></view>  
-        <text class="title">{{item.songname}}</text>  
-        <view class="subtitle">  
-          <text wx:for="{{item.singer}}" wx:key="unique">{{item.name}}</text>  
-        </view>  
-      </view>  
-      <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>  
-      <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>  
-    </scroll-view>    
-  </view>  
-</view>  
+
+<loading hidden="{{hiddenLoading}}">
+  加载中...
+ </loading>
+<view class="header">
+  <view bindtap='loadMore' >设计比赛</view>
+</view>
+
+<view class="tuijian">
+  <view class="wn-tuijian" style="">
+    <text>为您推荐</text>
+  </view>
+
+  <scroll-view class='scroll' scroll-y="true" bindscrolltolower="searchScrollLower" >  
+      <block wx:for="{{nav1Item}}"  wx:key="item.title" >
+        <view class="tuijian-container" bindtap="goComDetails" data-com_id="{{item.comId}}"  data-title="{{item.title}}" data-imgUrl="{{item.imgUrl}}">
+          <view class="tuijian-container-header">
+            <text>{{item.title}}</text>
+            <text>详情 ></text>
+          </view>
+            <text class='num'>{{index+1}}</text>
+            <image src="{{item.imgUrl}}" />       
+            <text class='tuijian-container-text' >{{item.abstract}}</text>      
+        </view>
+      </block>    
+      <view class='onload'  hidden="{{!searchLoadingComplete}}" >已加载全部</view>  
+  </scroll-view> 
+
+  
+</view>

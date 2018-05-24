@@ -1,11 +1,11 @@
 /*
-*navnum:导航id
+*
 *qclass:查询的类别
 *numeachpage:每页数量
 *page：第几页
 */
 const HOST = getApp().globalData.HOST
-function getNavItem(navnum, qclass, numeachpage, page,callback){
+function getNavItem(qclass, numeachpage, page,callback){
   wx.request({  
     url: HOST + 'api/index/getNavComItem.php',
     method: 'GET',

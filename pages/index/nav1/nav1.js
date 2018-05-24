@@ -1,69 +1,95 @@
-var util = require('../../../utils/util.js')
+var navUtil = require('../../../utils/navUtil.js')
+const HOST = getApp().globalData.HOST
 Page({
   data: {
-    searchKeyword: '',  //需要搜索的字符  
-    searchSongList: [], //放置返回数据的数组  
-    isFromSearch: true,   // 用于判断searchSongList数组是不是空数组，默认true，空的数组  
-    searchPageNum: 1,   // 设置加载的第几次，默认是第一次  
-    callbackcount: 15,      //返回数据的个数  
-    searchLoading: false, //"上拉加载"的变量，默认false，隐藏  
-    searchLoadingComplete: false  //“没有数据”的变量，默认false，隐藏  
+    hiddenLoading: false,
+    searchLoadingComplete: false,  //“没有数据”的变量，默认false，隐藏  
+    nav1Item: [],
+    class: 'c',//查询类型
+    num_rec_per_page: 2,//每页个数
+    page: 0,//查询第几页
   },
-  //输入框事件，每输入一个字符，就会触发一次  
-  bindKeywordInput: function (e) {
-    console.log("输入框事件")
-    this.setData({
-      searchKeyword: e.detail.value
+  onLoad: function (options) {
+    var that = this
+    if (wx.getStorageSync("nav1Item")) {// 本地如果有 nav1Item 缓存，提前渲染
+      that.setData({
+        nav1Item: wx.getStorageSync("nav1Item")
+      })
+    }
+    navUtil.getNavItem(that.data.class, that.data.num_rec_per_page, ++that.data.page, function (data) {
+      wx.setStorageSync("nav1Item", data) // 覆盖缓存数据
+      that.setData({
+        nav1Item: data
+      })
     })
+    this.setData({
+      hiddenLoading: !this.data.hiddenLoading
+    });
+
   },
-  //搜索，访问网络  
-  fetchSearchList: function () {
-    let that = this;
-    let searchKeyword = that.data.searchKeyword,//输入框字符串作为参数  
-      searchPageNum = that.data.searchPageNum,//把第几次加载次数作为参数  
-      callbackcount = that.data.callbackcount; //返回数据的个数  
-    //访问网络  
-    util.getSearchMusic(searchKeyword, searchPageNum, callbackcount, function (data) {
-      console.log(data)
-      //判断是否有数据，有则取数据  
-      if (data.data.song.curnum != 0) {
-        let searchList = [];
-        //如果isFromSearch是true从data中取出数据，否则先从原来的数据继续添加  
-        that.data.isFromSearch ? searchList = data.data.song.list : searchList = that.data.searchSongList.concat(data.data.song.list)
-        that.setData({
-          searchSongList: searchList, //获取数据数组  
-          zhida: data.data.zhida, //存放歌手属性的对象  
-          searchLoading: true   //把"上拉加载"的变量设为false，显示  
-        });
-        //没有数据了，把“没有数据”显示，把“上拉加载”隐藏  
+
+  /*下拉刷新*/
+  onPullDownRefresh: function () {
+    var that = this
+    that.setData({
+      hiddenLoading: !that.data.hiddenLoading
+    });
+    that.setData({
+      searchLoadingComplete: false, //“没有数据”的变量，默认false，隐藏  
+      nav1Item: [],
+      class: 'c',//查询类型
+      num_rec_per_page: 2,//每页个数
+      page: 0,//查询第几页
+    });
+    navUtil.getNavItem(that.data.class, that.data.num_rec_per_page, ++that.data.page, function (data) {
+      wx.setStorageSync("nav1Item", data) // 覆盖缓存数据
+      that.setData({
+        nav1Item: data
+      })
+    })
+
+    wx.stopPullDownRefresh()
+    that.setData({
+      hiddenLoading: !that.data.hiddenLoading
+    });
+  },
+  //加载更多
+  loadMore: function () {
+    this.setData({
+      hiddenLoading: !this.data.hiddenLoading
+    });
+    var that = this;
+    //getNavItem(qclass, numeachpage, page,callback)
+    navUtil.getNavItem(that.data.class, that.data.num_rec_per_page, ++that.data.page, function (data) {
+      if (data != '') {
+        console.log("新加载的数据", data);
       } else {
+        console.log("没有数据了", data);
         that.setData({
-          searchLoadingComplete: true, //把“没有数据”设为true，显示  
-          searchLoading: false  //把"上拉加载"的变量设为false，隐藏  
+          searchLoadingComplete: true //“没有数据”的变量，默认false，隐藏  
         });
       }
+      that.setData({ // 再次渲染
+        nav1Item: that.data.nav1Item.concat(data),
+      })
     })
-  },
-  //点击搜索按钮，触发事件  
-  keywordSearch: function (e) {
     this.setData({
-      searchPageNum: 1,   //第一次加载，设置1  
-      searchSongList: [],  //放置返回数据的数组,设为空  
-      isFromSearch: true,  //第一次加载，设置true  
-      searchLoading: true,  //把"上拉加载"的变量设为true，显示  
-      searchLoadingComplete: false //把“没有数据”设为false，隐藏  
-    })
-    this.fetchSearchList();
+      hiddenLoading: !this.data.hiddenLoading
+    });
   },
   //滚动到底部触发事件  
   searchScrollLower: function () {
-    let that = this;
-    if (that.data.searchLoading && !that.data.searchLoadingComplete) {
-      that.setData({
-        searchPageNum: that.data.searchPageNum + 1,  //每次触发上拉事件，把searchPageNum+1  
-        isFromSearch: false  //触发到上拉事件，把isFromSearch设为为false  
-      });
-      that.fetchSearchList();
+    console.log("滚动到底部触发事件")
+    var that = this;
+    if (!that.data.searchLoadingComplete) {
+      that.loadMore();
     }
+  },
+  //跳转到详情页面
+  goComDetails: function (e) {
+    wx.navigateTo({
+      url: '../comDetails/comDetails?com_id=' + e.currentTarget.dataset.com_id
+    })
   }
-})  
+
+})
